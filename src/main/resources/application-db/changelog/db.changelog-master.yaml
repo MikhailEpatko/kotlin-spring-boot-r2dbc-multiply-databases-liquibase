@@ -1,0 +1,3 @@
+databaseChangeLog:
+  - include:
+      file: application-db/changelog/v1/master.yml

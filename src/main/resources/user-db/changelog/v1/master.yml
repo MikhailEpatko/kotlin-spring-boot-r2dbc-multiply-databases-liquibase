@@ -1,0 +1,3 @@
+databaseChangeLog:
+  - include:
+      file: user-db/changelog/v1/init.sql

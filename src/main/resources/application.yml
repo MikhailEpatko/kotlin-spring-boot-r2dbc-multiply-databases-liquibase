@@ -1,0 +1,41 @@
+app:
+  db:
+    user:
+      driver: postgresql
+      host: localhost
+      port: 5433
+      database: user_db
+      user: postgres
+      password: postgres
+      liquibase:
+        change-log: classpath:user-db/changelog/db.changelog-master.yaml
+        enabled: true
+        liquibaseSchema: public
+    application:
+      driver: postgresql
+      host: localhost
+      port: 5455
+      database: application_db
+      user: postgres
+      password: postgres
+      liquibase:
+        change-log: classpath:application-db/changelog/db.changelog-master.yaml
+        enabled: true
+        liquibaseSchema: public
+
+spring:
+  application:
+    name: application
+  main:
+    allow-bean-definition-overriding: true
+
+logging:
+  file:
+    name: ./logs/application.log
+  level:
+    root: info
+    io:
+      r2dbc:
+        postgresql:
+          QUERY: DEBUG
+          PARAM: DEBUG
